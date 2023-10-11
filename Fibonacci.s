@@ -1,3 +1,63 @@
+		
+    @@ Instituto Tecnologico de Tijuana
+    @@ Depto de Sistemas y Computación
+	@@ Ing. En Sistemas Computacionales
+@@   
+@@ Autor : Angel Albino Garcia Cerrillo @nickname AAngel77
+@@ Repositorio: https://github.com/AAngel777/2.4-.git
+@@ 
+@
+@ Objetivo del programa:
+@    Programa que calcula la posicion del numero Fibonacci
+@	 Desensamblado por medio de la Raspberry y ejecutado en ensamblador de manera correcta
+@	 Basado en el siguiente programa en C:
+@ #include <stdio.h>  // Including the standard input-output header file for functions like printf.
+
+@ Calculates the nth Fibonacci number.
+@
+@ @param n: An integer representing the position of the Fibonacci number to calculate.
+@ @return: The nth Fibonacci number.
+@
+@ int fibonacci(int n) {
+@     if (n <= 0) {
+@         printf("Invalid input. The position should be a positive integer.\n");
+@         return -1;
+@     }
+@
+@     if (n == 1 || n == 2) {
+@         return 1;
+@     }
+@
+@     int fib1 = 1;  // First Fibonacci number
+@     int fib2 = 1;  // Second Fibonacci number
+@     int fibN = 0;  // Nth Fibonacci number
+@
+@     for (int i = 3; i <= n; i++) {
+@         fibN = fib1 + fib2;
+@         fib1 = fib2;
+@         fib2 = fibN;
+@     }
+@
+@     return fibN;
+@ }
+
+@ int main() {
+@     int position;
+@     printf("Enter the position of the Fibonacci number to calculate: ");
+@     scanf("%d", &position);
+@
+@     int result = fibonacci(position);
+@     if (result != -1) {
+@         printf("The Fibonacci number at position %d is: %d\n", position, result);
+@     }
+@
+@     return 0;
+@ }
+
+
+	@ ---------------------------------------
+	@	Data Section
+	@ ---------------------------------------
 	.arch armv6
 	.eabi_attribute 28, 1
 	.eabi_attribute 20, 1
@@ -9,6 +69,9 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
+	@ ---------------------------------------
+	@	Code Section
+	@ ---------------------------------------
 	.file	"Fibonacci.c"
 	.text
 	.section	.rodata
